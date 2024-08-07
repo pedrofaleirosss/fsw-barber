@@ -51,6 +51,7 @@ const Home = async () => {
             src="/banner-01.png"
             fill
             className="rounded-xl object-cover"
+            sizes="100%"
           />
         </div>
 
