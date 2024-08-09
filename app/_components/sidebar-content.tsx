@@ -3,6 +3,7 @@
 import { Button } from "./ui/button"
 import { CalendarIcon, HomeIcon, LogInIcon, LogOutIcon } from "lucide-react"
 import {
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -98,19 +99,19 @@ const SidebarContent = () => {
 
       <div className="flex flex-col gap-2 py-5">
         {quickSearchOptions.map((option) => (
-          <Button
-            className="justify-start gap-2"
-            variant="ghost"
-            key={option.title}
-          >
-            <Image
-              src={option.imageUrl}
-              alt={option.title}
-              width={18}
-              height={18}
-            />
-            {option.title}
-          </Button>
+          <SheetClose key={option.title} asChild>
+            <Button className="justify-start gap-2" variant="ghost" asChild>
+              <Link href={`/barbershops?service=${option.title}`}>
+                <Image
+                  src={option.imageUrl}
+                  alt={option.title}
+                  width={18}
+                  height={18}
+                />
+                {option.title}
+              </Link>
+            </Button>
+          </SheetClose>
         ))}
       </div>
 
@@ -123,7 +124,7 @@ const SidebarContent = () => {
                 Sair da conta
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[90%] rounded-xl">
+            <DialogContent className="w-[80%] rounded-xl">
               <DialogHeader>
                 <DialogTitle>Sair</DialogTitle>
                 <DialogDescription>
@@ -131,7 +132,7 @@ const SidebarContent = () => {
                 </DialogDescription>
               </DialogHeader>
               <div className="flex items-center justify-center gap-2">
-                <DialogClose>
+                <DialogClose asChild>
                   <Button variant="secondary" className="w-[100px]">
                     Cancelar
                   </Button>
