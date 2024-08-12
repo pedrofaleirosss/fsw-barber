@@ -13,8 +13,8 @@ import {
 } from "./ui/sheet"
 import { Calendar } from "./ui/calendar"
 import { ptBR } from "date-fns/locale"
-import { useEffect, useState } from "react"
-import { format, getDate, getHours, getMinutes, set } from "date-fns"
+import { useEffect, useMemo, useState } from "react"
+import { format, isPast, isToday, set } from "date-fns"
 import { createBooking } from "../_actions/create-booking"
 import { useSession } from "next-auth/react"
 import { toast } from "sonner"
@@ -59,6 +59,36 @@ const TIME_LIST = [
   "18:00",
   "18:30",
 ]
+
+interface GetTimeListProps {
+  bookings: Booking[]
+  selectedDay: Date
+}
+
+const getTimeList = ({ bookings, selectedDay }: GetTimeListProps) => {
+  return TIME_LIST.filter((time) => {
+    const hour = Number(time.split(":")[0])
+    const minutes = Number(time.split(":")[1])
+
+    const hasBookingOnCurrentTime = bookings.some(
+      (booking) =>
+        booking.date.getHours() === hour &&
+        booking.date.getMinutes() === minutes,
+    )
+
+    const timeIsOnThePast = isPast(set(new Date(), { hours: hour, minutes }))
+
+    if (hasBookingOnCurrentTime) {
+      return false
+    }
+
+    if (timeIsOnThePast && isToday(selectedDay)) {
+      return false
+    }
+
+    return true
+  })
+}
 
 const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
   const { data } = useSession()
@@ -129,32 +159,13 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
     }
   }
 
-  const getTimeList = (bookings: Booking[]) => {
-    return TIME_LIST.filter((time) => {
-      const hour = Number(time.split(":")[0])
-      const minutes = Number(time.split(":")[1])
-
-      const hasBookingOnCurrentTime = bookings.some(
-        (booking) =>
-          booking.date.getHours() === hour &&
-          booking.date.getMinutes() === minutes,
-      )
-
-      if (hasBookingOnCurrentTime) {
-        return false
-      }
-
-      if (
-        Number(selectedDay?.getDate()) === getDate(new Date()) &&
-        (hour < getHours(new Date()) ||
-          (hour == getHours(new Date()) && minutes < getMinutes(new Date())))
-      ) {
-        return false
-      }
-
-      return true
+  const timeList = useMemo(() => {
+    if (!selectedDay) return []
+    return getTimeList({
+      bookings: dayBookings,
+      selectedDay,
     })
-  }
+  }, [dayBookings, selectedDay])
 
   return (
     <>
@@ -229,19 +240,20 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
 
                   {selectedDay && (
                     <div className="flex gap-3 overflow-x-auto border-b border-solid p-5 [&::-webkit-scrollbar]:hidden">
-                      {getTimeList(dayBookings).map((time) => (
-                        <Button
-                          key={time}
-                          variant={
-                            selectedTime === time ? "default" : "outline"
-                          }
-                          className="rounded-full"
-                          onClick={() => handleTimeSelect(time)}
-                        >
-                          {time}
-                        </Button>
-                      ))}
-                      {getTimeList(dayBookings).length === 0 && (
+                      {timeList.length > 0 ? (
+                        timeList.map((time) => (
+                          <Button
+                            key={time}
+                            variant={
+                              selectedTime === time ? "default" : "outline"
+                            }
+                            className="rounded-full"
+                            onClick={() => handleTimeSelect(time)}
+                          >
+                            {time}
+                          </Button>
+                        ))
+                      ) : (
                         <p className="text-sm text-gray-400">
                           Não há horários disponíveis neste dia.
                         </p>
