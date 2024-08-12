@@ -3,9 +3,14 @@ import Header from "../_components/header"
 import { db } from "../_lib/prisma"
 import { authOptions } from "../_lib/auth"
 import BookingItem from "../_components/booking-item"
+import { notFound } from "next/navigation"
 
 const Bookings = async () => {
   const session = await getServerSession(authOptions)
+
+  if (!session?.user) {
+    return notFound()
+  }
 
   const confirmedBookings = await db.booking.findMany({
     where: {
