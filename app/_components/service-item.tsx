@@ -311,14 +311,15 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                               Cancelar
                             </Button>
                           </DialogClose>
-
-                          <Button
-                            variant="default"
-                            onClick={handleCreateBooking}
-                            className="w-[100px]"
-                          >
-                            Confirmar
-                          </Button>
+                          <DialogClose asChild>
+                            <Button
+                              variant="default"
+                              onClick={handleCreateBooking}
+                              className="w-[100px]"
+                            >
+                              Confirmar
+                            </Button>
+                          </DialogClose>
                         </div>
                       </DialogContent>
                     </Dialog>

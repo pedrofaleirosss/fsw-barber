@@ -18,6 +18,7 @@ import {
   DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -115,20 +116,22 @@ const SidebarContent = () => {
                   Deseja mesmo sair da plataforma?
                 </DialogDescription>
               </DialogHeader>
-              <div className="flex items-center justify-center gap-2">
+              <DialogFooter className="flex-row items-center justify-center gap-2">
                 <DialogClose asChild>
                   <Button variant="secondary" className="w-[100px]">
                     Cancelar
                   </Button>
                 </DialogClose>
-                <Button
-                  variant="destructive"
-                  onClick={handleLogoutClick}
-                  className="w-[100px]"
-                >
-                  Sair
-                </Button>
-              </div>
+                <DialogClose asChild>
+                  <Button
+                    variant="destructive"
+                    onClick={handleLogoutClick}
+                    className="w-[100px]"
+                  >
+                    Sair
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
             </DialogContent>
           </Dialog>
         </div>
