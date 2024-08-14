@@ -213,7 +213,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   Reservar
                 </Button>
 
-                <SheetContent className="px-0">
+                <SheetContent className="w-[85%] overflow-y-auto px-0 [&::-webkit-scrollbar]:hidden">
                   <SheetHeader>
                     <SheetTitle className="pl-5 text-left">
                       Fazer Reserva

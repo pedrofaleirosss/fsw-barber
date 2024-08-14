@@ -75,7 +75,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
               >
                 {isConfirmed ? "Confirmado" : "Finalizado"}
               </Badge>
-              <h3 className="text-left font-semibold">
+              <h3 className="truncate text-left font-semibold">
                 {booking.service.name}
               </h3>
 
@@ -83,7 +83,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                 <Avatar className="h-6 w-6">
                   <AvatarImage src={barbershop.imageUrl} />
                 </Avatar>
-                <p className="text-sm">{barbershop.name}</p>
+                <p className="text-left text-sm">{barbershop.name}</p>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
           </CardContent>
         </Card>
       </SheetTrigger>
-      <SheetContent className="w-[85%]">
+      <SheetContent className="w-[85%] overflow-y-auto [&::-webkit-scrollbar]:hidden">
         <SheetHeader>
           <SheetTitle className="text-left">Informações da Reserva</SheetTitle>
         </SheetHeader>
@@ -164,14 +164,14 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                     Cancelar Reserva
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="w-[80%] rounded-xl">
+                <DialogContent className="flex w-[90%] flex-col rounded-xl">
                   <DialogHeader>
                     <DialogTitle>Cancelar Reserva</DialogTitle>
                     <DialogDescription>
                       Tem certeza que deseja cancelar o agendamento?
                     </DialogDescription>
                   </DialogHeader>
-                  <DialogFooter className="flex-row items-center justify-center gap-2">
+                  <DialogFooter className="flex-row items-center gap-2">
                     <DialogClose asChild>
                       <Button variant="secondary" className="w-[150px]">
                         Cancelar
