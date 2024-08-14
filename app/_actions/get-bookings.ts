@@ -15,7 +15,6 @@ export const getBookings = ({ date, serviceId }: GetBookingsProps) => {
         lte: endOfDay(date),
         gte: startOfDay(date),
       },
-      serviceId,
     },
   })
 }
