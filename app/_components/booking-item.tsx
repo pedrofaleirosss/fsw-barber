@@ -66,7 +66,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
   return (
     <Sheet open={isSheetOpen} onOpenChange={(isOpen) => setIsSheetOpen(isOpen)}>
       <SheetTrigger className="w-full min-w-[90%]">
-        <Card className="min-w-[90%]">
+        <Card className="w-full">
           <CardContent className="flex justify-between px-5 py-0">
             <div className="flex flex-col gap-2 py-5">
               <Badge
@@ -164,7 +164,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                     Cancelar Reserva
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="flex w-[90%] flex-col rounded-xl">
+                <DialogContent className="flex w-[90%] flex-col rounded-xl sm:max-w-md">
                   <DialogHeader>
                     <DialogTitle>Cancelar Reserva</DialogTitle>
                     <DialogDescription>
