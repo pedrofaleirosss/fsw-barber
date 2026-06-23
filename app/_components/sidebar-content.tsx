@@ -10,7 +10,7 @@ import {
   SheetTitle,
 } from "./ui/sheet"
 import { quickSearchOptions } from "../_constants/search"
-import { Avatar, AvatarImage } from "./ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import Link from "next/link"
 import Image from "next/image"
 import {
@@ -42,7 +42,15 @@ const SidebarContent = () => {
         {data?.user ? (
           <div className="flex items-center gap-2">
             <Avatar>
-              <AvatarImage src={data.user.image!} />
+              <AvatarImage src={data.user.image as string | undefined} />
+              <AvatarFallback>
+                {data.user.name
+                  ?.split(" ")
+                  .slice(0, 2)
+                  .map((name) => name[0])
+                  .join("")
+                  .toUpperCase()}
+              </AvatarFallback>
             </Avatar>
 
             <div>
