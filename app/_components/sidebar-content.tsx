@@ -25,10 +25,23 @@ import {
 } from "./ui/dialog"
 import { signOut, useSession } from "next-auth/react"
 import SignInDialog from "./sign-in-dialog"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 const SidebarContent = () => {
   const { data } = useSession()
+  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false)
+  const router = useRouter()
+
   const handleLogoutClick = () => signOut()
+
+  const handleBookingsClick = () => {
+    if (!data?.user) {
+      return setSignInDialogIsOpen(true)
+    }
+
+    router.push("/bookings")
+  }
 
   return (
     <SheetContent className="overflow-y-auto [&::-webkit-scrollbar]:hidden">
@@ -82,11 +95,13 @@ const SidebarContent = () => {
             Início
           </Link>
         </Button>
-        <Button className="justify-start gap-2" variant="ghost" asChild>
-          <Link href="/bookings">
-            <CalendarIcon size={18} />
-            Agendamentos
-          </Link>
+        <Button
+          className="justify-start gap-2"
+          variant="ghost"
+          onClick={handleBookingsClick}
+        >
+          <CalendarIcon size={18} />
+          Agendamentos
         </Button>
       </div>
 
@@ -144,6 +159,15 @@ const SidebarContent = () => {
           </Dialog>
         </div>
       )}
+
+      <Dialog
+        open={signInDialogIsOpen}
+        onOpenChange={(open) => setSignInDialogIsOpen(open)}
+      >
+        <DialogContent className="w-[90%] rounded-xl">
+          <SignInDialog />
+        </DialogContent>
+      </Dialog>
     </SheetContent>
   )
 }
