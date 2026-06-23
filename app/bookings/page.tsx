@@ -19,8 +19,9 @@ const Bookings = async () => {
   return (
     <>
       <Header />
-      <div className="space-y-4 p-5">
-        <h1 className="text-xl font-bold">Agendamentos</h1>
+
+      <main className="mx-auto w-full max-w-7xl space-y-4 p-5">
+        <h1 className="text-xl font-bold md:text-2xl">Agendamentos</h1>
 
         {confirmedBookings.length === 0 && finishedBookings.length === 0 && (
           <p className="text-gray-400">Você não tem agendamentos.</p>
@@ -31,12 +32,14 @@ const Bookings = async () => {
             <h2 className="text-sm font-bold uppercase text-gray-400">
               Confirmados
             </h2>
-            {confirmedBookings.map((booking) => (
-              <BookingItem
-                booking={JSON.parse(JSON.stringify(booking))}
-                key={booking.id}
-              />
-            ))}
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {confirmedBookings.map((booking) => (
+                <BookingItem
+                  booking={JSON.parse(JSON.stringify(booking))}
+                  key={booking.id}
+                />
+              ))}
+            </div>
           </>
         )}
 
@@ -45,15 +48,17 @@ const Bookings = async () => {
             <h2 className="text-sm font-bold uppercase text-gray-400">
               Finalizados
             </h2>
-            {finishedBookings.map((booking) => (
-              <BookingItem
-                booking={JSON.parse(JSON.stringify(booking))}
-                key={booking.id}
-              />
-            ))}
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {finishedBookings.map((booking) => (
+                <BookingItem
+                  booking={JSON.parse(JSON.stringify(booking))}
+                  key={booking.id}
+                />
+              ))}
+            </div>
           </>
         )}
-      </div>
+      </main>
     </>
   )
 }
