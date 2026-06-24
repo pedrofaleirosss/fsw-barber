@@ -7,6 +7,7 @@ import { Card, CardContent } from "./ui/card"
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -192,6 +193,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
               fill
               className="rounded-lg object-cover"
               alt={service.name}
+              sizes="110px"
             />
           </div>
           <div className="w-full space-y-2">
@@ -218,6 +220,9 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                     <SheetTitle className="pl-5 text-left">
                       Fazer Reserva
                     </SheetTitle>
+                    <SheetDescription className="sr-only">
+                      Selecione a data e horário para reservar o serviço.
+                    </SheetDescription>
                   </SheetHeader>
 
                   <div className="flex justify-center border-b border-solid py-5">

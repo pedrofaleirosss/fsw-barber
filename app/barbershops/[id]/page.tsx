@@ -37,7 +37,8 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           fill
           className="object-cover"
           alt={barbershop.name}
-          sizes="100vw"
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          priority
         />
 
         <Button
