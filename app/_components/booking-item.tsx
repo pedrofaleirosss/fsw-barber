@@ -149,10 +149,10 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             ))}
           </div>
         </div>
-        <SheetFooter>
-          <div className="mt-6 flex items-center gap-3">
+        <SheetFooter className="w-full">
+          <div className="mt-6 flex w-full items-center gap-3">
             <SheetClose asChild>
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="flex-1">
                 Voltar
               </Button>
             </SheetClose>
@@ -160,7 +160,7 @@ const BookingItem = ({ booking }: BookingItemProps) => {
             {isConfirmed && (
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button className="w-full" variant="destructive">
+                  <Button className="flex-1" variant="destructive">
                     Cancelar Reserva
                   </Button>
                 </DialogTrigger>

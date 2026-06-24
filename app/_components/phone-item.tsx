@@ -6,16 +6,17 @@ import { toast } from "sonner"
 
 interface PhoneItemProps {
   phone: string
+  className?: string
 }
 
-const PhoneItem = ({ phone }: PhoneItemProps) => {
+const PhoneItem = ({ phone, className }: PhoneItemProps) => {
   const handleCopyPhoneClick = (phone: string) => {
     navigator.clipboard.writeText(phone)
     toast.success("Telefone copiado com sucesso!")
   }
 
   return (
-    <div className="flex justify-between md:justify-normal md:gap-3">
+    <div className={`flex justify-between ${className}`}>
       <div className="flex items-center gap-2">
         <SmartphoneIcon />
         <p className="text-sm">{phone}</p>

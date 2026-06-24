@@ -108,7 +108,11 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
       <div className="space-y-3 p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Contato</h2>
         {barbershop.phones.map((phone, i) => (
-          <PhoneItem phone={phone} key={i} />
+          <PhoneItem
+            phone={phone}
+            key={i}
+            className="md:justify-normal md:gap-3"
+          />
         ))}
       </div>
     </div>
