@@ -30,7 +30,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </AuthProvider>
-        <Toaster />
+        <Toaster position="bottom-center" />
       </body>
     </html>
   )
