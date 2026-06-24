@@ -213,30 +213,32 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   Reservar
                 </Button>
 
-                <SheetContent className="w-[85%] overflow-y-auto px-0 [&::-webkit-scrollbar]:hidden">
+                <SheetContent className="w-[85%] overflow-y-auto px-0 sm:max-w-md [&::-webkit-scrollbar]:hidden">
                   <SheetHeader>
                     <SheetTitle className="pl-5 text-left">
                       Fazer Reserva
                     </SheetTitle>
                   </SheetHeader>
 
-                  <div className="border-b border-solid py-5">
+                  <div className="flex justify-center border-b border-solid py-5">
                     <Calendar
                       mode="single"
                       locale={ptBR}
                       selected={selectedDay}
                       onSelect={handleDateSelect}
                       fromDate={new Date()}
+                      className="flex w-full max-w-md justify-center"
                       styles={{
                         head_cell: {
-                          width: "100%",
+                          width: "40px",
                           textTransform: "capitalize",
                         },
                         cell: {
-                          width: "100%",
+                          width: "40px",
                         },
                         button: {
-                          width: "100%",
+                          width: "40px",
+                          height: "40px",
                         },
                         nav_button_previous: {
                           width: "32px",
@@ -254,7 +256,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   </div>
 
                   {selectedDay && (
-                    <div className="flex gap-3 overflow-x-auto border-b border-solid p-5 [&::-webkit-scrollbar]:hidden">
+                    <div className="flex gap-3 overflow-x-auto border-b border-solid p-5 md:grid md:grid-cols-4 md:overflow-visible lg:grid-cols-5 [&::-webkit-scrollbar]:hidden">
                       {timeList.length > 0 ? (
                         timeList.map((time) => (
                           <Button
@@ -277,7 +279,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   )}
 
                   {selectedDate && (
-                    <div className="p-5">
+                    <div className="mb-[-20px] p-5">
                       <BookingSummary
                         barbershop={barbershop}
                         service={service}
@@ -291,16 +293,18 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                       <DialogTrigger asChild>
                         <Button
                           disabled={!selectedDay || !selectedTime}
-                          className="mt-5"
+                          className="mt-5 w-full"
                         >
                           Confirmar
                         </Button>
                       </DialogTrigger>
 
-                      <DialogContent className="w-[80%] rounded-xl">
+                      <DialogContent className="w-[80%] rounded-xl sm:max-w-md">
                         <DialogHeader>
-                          <DialogTitle>Reserva</DialogTitle>
-                          <DialogDescription>
+                          <DialogTitle className="text-center">
+                            Reserva
+                          </DialogTitle>
+                          <DialogDescription className="text-center">
                             Deseja mesmo fazer a reserva?
                           </DialogDescription>
                         </DialogHeader>

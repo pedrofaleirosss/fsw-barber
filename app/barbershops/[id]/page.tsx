@@ -30,14 +30,14 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
   }
 
   return (
-    <div>
-      <div className="relative h-[250px] w-full">
+    <div className="mx-auto w-full max-w-7xl">
+      <div className="relative h-[250px] w-full md:h-[350px] lg:h-[400px]">
         <Image
           src={barbershop.imageUrl}
           fill
           className="object-cover"
           alt={barbershop.name}
-          sizes="100%"
+          sizes="100vw"
         />
 
         <Button
@@ -65,8 +65,11 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </Sheet>
       </div>
 
+      {/* INFORMAÇÕES PRINCIPAIS */}
       <div className="border-b border-solid p-5">
-        <h1 className="mb-3 text-xl font-bold">{barbershop.name}</h1>
+        <h1 className="mb-3 text-xl font-bold md:text-2xl">
+          {barbershop.name}
+        </h1>
 
         <div className="mb-2 flex items-center gap-2">
           <MapPinIcon className="text-primary" size={18} />
@@ -79,24 +82,29 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
         </div>
       </div>
 
+      {/* SOBRE */}
       <div className="space-y-2 border-b border-solid p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Sobre nós</h2>
         <p className="text-justify text-sm">{barbershop.description}</p>
       </div>
 
+      {/* SERVIÇOS */}
       <div className="space-y-3 border-b border-solid p-5">
         <h2 className="mb-5 text-xs font-bold uppercase text-gray-400">
           Serviços
         </h2>
-        {barbershop.services.map((service) => (
-          <ServiceItem
-            key={service.id}
-            service={JSON.parse(JSON.stringify(service))}
-            barbershop={JSON.parse(JSON.stringify(barbershop))}
-          />
-        ))}
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          {barbershop.services.map((service) => (
+            <ServiceItem
+              key={service.id}
+              service={JSON.parse(JSON.stringify(service))}
+              barbershop={JSON.parse(JSON.stringify(barbershop))}
+            />
+          ))}
+        </div>
       </div>
 
+      {/* CONTATO */}
       <div className="space-y-3 p-5">
         <h2 className="text-xs font-bold uppercase text-gray-400">Contato</h2>
         {barbershop.phones.map((phone, i) => (

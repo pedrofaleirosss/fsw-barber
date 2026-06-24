@@ -132,7 +132,7 @@ const SidebarContent = () => {
                 Sair da conta
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[80%] rounded-xl">
+            <DialogContent className="w-[80%] rounded-xl sm:max-w-md">
               <DialogHeader>
                 <DialogTitle>Sair</DialogTitle>
                 <DialogDescription>
