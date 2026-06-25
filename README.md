@@ -34,40 +34,23 @@ Esse projeto foi muito importante para consolidar meus conhecimentos em desenvol
 
 ### Desktop
 
-<div align="center">
-  <img src="./docs/images/home-desktop.png" alt="Página inicial do FSW Barber no desktop" width="100%" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="./docs/images/barbershop-desktop.png" alt="Página de uma barbearia no desktop" width="49%" />
-  <img src="./docs/images/booking-sheet-desktop.png" alt="Tela de reserva no desktop" width="49%" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="./docs/images/search-desktop.png" alt="Busca de barbearias no desktop" width="49%" />
-  <img src="./docs/images/bookings-desktop.png" alt="Página de agendamentos no desktop" width="49%" />
-</div>
+<img width="100%" alt="Página inicial do FSW Barber no desktop" src="https://github.com/user-attachments/assets/8e3ece41-f301-4578-913a-fe7afdb7181a" />
+<img width="100%" alt="Busca de barbearias no desktop" src="https://github.com/user-attachments/assets/1728f367-a299-4561-a546-c0258e40e595" />
+<img width="100%" alt="Página de uma barbearia no desktop" src="https://github.com/user-attachments/assets/8feec655-aa0d-43c9-8c97-357a84f049bf" />
+<img width="100%" alt="Tela de reserva no desktop" src="https://github.com/user-attachments/assets/c7f1a758-5864-4811-b7cd-d7c6b202d2d5" />
+<img width="100%" alt="Página de agendamentos no desktop" src="https://github.com/user-attachments/assets/b5f38646-d490-4335-9d3b-275b3e9be29a" />
 
 ### Mobile
 
-<div align="center">
-  <img src="./docs/images/home-mobile.png" alt="Página inicial do FSW Barber no celular" width="24%" />
-  <img src="./docs/images/menu-mobile.png" alt="Menu lateral do FSW Barber no celular" width="24%" />
-  <img src="./docs/images/barbershop-mobile.png" alt="Página de barbearia no celular" width="24%" />
-  <img src="./docs/images/booking-sheet-mobile.png" alt="Agendamento de serviço no celular" width="24%" />
-</div>
-
-<br />
-
-<div align="center">
-  <img src="./docs/images/search-mobile.png" alt="Busca de barbearias no celular" width="32%" />
-  <img src="./docs/images/bookings-mobile.png" alt="Página de agendamentos no celular" width="32%" />
-  <img src="./docs/images/booking-details-mobile.png" alt="Detalhes de uma reserva no celular" width="32%" />
-</div>
+<img width="33%" alt="Página inicial do FSW Barber no celular" src="https://github.com/user-attachments/assets/fdb2783b-1b5d-4d72-9257-ee18fd50dfb2" />
+<img width="33%" alt="Menu lateral do FSW Barber no celular" src="https://github.com/user-attachments/assets/5df4013f-62a7-46a0-96fc-7b30bf383b5c" />
+<img width="33%" alt="Página inicial do FSW Barber mais abaixo no celular" src="https://github.com/user-attachments/assets/ccc26a07-3c54-4bd7-96a9-ac7becb80ac4" />
+<img width="33%" alt="Busca de barbearias no celular" src="https://github.com/user-attachments/assets/ccbcbc61-25d3-42fe-8b68-0998e0e3f040" />
+<img width="33%" alt="Página de barbearia no celular" src="https://github.com/user-attachments/assets/b750a951-6ff2-48a6-bf61-4a6918c3743a" />
+<img width="33%" alt="Página de barbearia mais abaixo no celular" src="https://github.com/user-attachments/assets/f51d6a9d-153d-4590-aa5b-93e00f8581e6" />
+<img width="33%" alt="Agendamento de serviço no celular" src="https://github.com/user-attachments/assets/be94c9bb-7df6-468d-8244-c261371948e0" />
+<img width="33%" alt="Página de agendamentos no celula" src="https://github.com/user-attachments/assets/43cad78d-6a32-476a-bb04-2299290a9305" />
+<img width="33%" alt="Detalhes de uma reserva no celular" src="https://github.com/user-attachments/assets/46a5c40d-037a-4dc1-a6ad-8816feec9311" />
 
 ---
 
