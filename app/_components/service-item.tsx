@@ -261,20 +261,22 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   </div>
 
                   {selectedDay && (
-                    <div className="flex gap-3 overflow-x-auto border-b border-solid p-5 md:grid md:grid-cols-4 md:overflow-visible lg:grid-cols-5 [&::-webkit-scrollbar]:hidden">
+                    <div className="border-b border-solid p-5">
                       {timeList.length > 0 ? (
-                        timeList.map((time) => (
-                          <Button
-                            key={time}
-                            variant={
-                              selectedTime === time ? "default" : "outline"
-                            }
-                            className="rounded-full"
-                            onClick={() => handleTimeSelect(time)}
-                          >
-                            {time}
-                          </Button>
-                        ))
+                        <div className="flex gap-3 overflow-x-auto md:grid md:grid-cols-4 md:overflow-visible lg:grid-cols-5 [&::-webkit-scrollbar]:hidden">
+                          {timeList.map((time) => (
+                            <Button
+                              key={time}
+                              variant={
+                                selectedTime === time ? "default" : "outline"
+                              }
+                              className="rounded-full"
+                              onClick={() => handleTimeSelect(time)}
+                            >
+                              {time}
+                            </Button>
+                          ))}
+                        </div>
                       ) : (
                         <p className="text-sm text-gray-400">
                           Não há horários disponíveis neste dia.
