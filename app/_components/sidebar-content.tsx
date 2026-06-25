@@ -80,7 +80,7 @@ const SidebarContent = () => {
                   <LogInIcon />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="w-[90%] rounded-xl">
+              <DialogContent className="w-[90%] rounded-xl sm:max-w-md">
                 <SignInDialog />
               </DialogContent>
             </Dialog>
@@ -164,7 +164,7 @@ const SidebarContent = () => {
         open={signInDialogIsOpen}
         onOpenChange={(open) => setSignInDialogIsOpen(open)}
       >
-        <DialogContent className="w-[90%] rounded-xl">
+        <DialogContent className="w-[90%] rounded-xl sm:max-w-md">
           <SignInDialog />
         </DialogContent>
       </Dialog>
